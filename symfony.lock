@@ -1,4 +1,22 @@
 {
+    "brick/math": {
+        "version": "0.9.3"
+    },
+    "ecotone/ecotone": {
+        "version": "1.15.5"
+    },
+    "ecotone/symfony-bundle": {
+        "version": "1.15.5"
+    },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.7"
+    },
+    "laminas/laminas-code": {
+        "version": "4.5.1"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.5.0"
+    },
     "psr/cache": {
         "version": "3.0.0"
     },
@@ -10,6 +28,12 @@
     },
     "psr/log": {
         "version": "3.0.0"
+    },
+    "ramsey/collection": {
+        "version": "1.2.2"
+    },
+    "ramsey/uuid": {
+        "version": "4.3.1"
     },
     "symfony/cache": {
         "version": "v6.0.6"
