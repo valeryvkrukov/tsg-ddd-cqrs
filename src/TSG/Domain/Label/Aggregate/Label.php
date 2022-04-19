@@ -11,6 +11,7 @@ use Ecotone\Modelling\WithAggregateEvents;
 use TSG\Domain\Label\Command\RegisterLabelCommand;
 use TSG\Domain\Label\Query\GetLabelQuery;
 use TSG\Domain\Label\Event\LabelWasRegisteredEvent;
+use TSG\Domain\Label\ValueObject\LabelShortName;
 
 #[Aggregate]
 class Label
@@ -19,10 +20,10 @@ class Label
 
     #[AggregateIdentifier]
     private int $labelId;
-    private string $shortName;
+    private LabelShortName $shortName;
     private ?string $reportName;
 
-    private function __construct(int $labelId, string $shortName, string $reportName = null)
+    private function __construct(int $labelId, LabelShortName $shortName, string $reportName = null)
     {
         $this->labelId = $labelId;
         $this->shortName = $shortName;
@@ -31,14 +32,14 @@ class Label
         $this->recordThat(new LabelWasRegisteredEvent($labelId));
     }
 
-    #[CommandHandler]
+    #[CommandHandler('label.register')]
     public static function register(RegisterLabelCommand $command): self
     {
         return new self($command->getLabelId(), $command->getShortName());
     }
 
-    #[QueryHandler]
-    public function getLabel(GetLabelQuery $query): string
+    #[QueryHandler('label.getLabel')]
+    public function getLabel(GetLabelQuery $query): LabelShortName
     {
         return $this->shortName;
     }
