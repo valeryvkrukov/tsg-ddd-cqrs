@@ -24,7 +24,16 @@ class EcotoneQuickstart
         $this->commandBus->sendWithRouting('label.register', \json_encode([
             'labelId' => 1,
             'shortName' => 'Test SHORT NAME',
-        ]), 'application/json');
+        ]), 'application/json', [
+            'userId' => 1,
+        ]);
+
+        $this->commandBus->sendWithRouting('label.changeLabelShortName', \json_encode([
+            'labelId' => 1,
+            'shortName' => 'Test SHORT NAME changed',
+        ]), 'application/json', [
+            'userId' => 1,
+        ]);
 
         echo $this->queryBus->sendWithRouting('label.getLabel', \json_encode([
             'labelId' => 1,
