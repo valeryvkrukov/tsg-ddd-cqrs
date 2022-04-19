@@ -55,8 +55,8 @@ class Label
         $this->shortName = $command->getLabelShortName();
     }
 
-    #[QueryHandler('label.getLabel')]
-    public function getLabel(GetLabelQuery $query): LabelShortName
+    #[QueryHandler('label.getLabelShortName')]
+    public function getLabelShortName(GetLabelQuery $query): LabelShortName
     {
         return $this->shortName;
     }

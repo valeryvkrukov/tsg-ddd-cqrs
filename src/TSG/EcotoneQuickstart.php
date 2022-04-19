@@ -31,7 +31,7 @@ class EcotoneQuickstart
             'shortName' => 'Test SHORT NAME changed',
         ]), 'application/json');
 
-        echo $this->queryBus->sendWithRouting('label.getLabel', \json_encode([
+        echo $this->queryBus->sendWithRouting('label.getLabelShortName', \json_encode([
             'labelId' => 1,
         ]), 'application/json');
     }
